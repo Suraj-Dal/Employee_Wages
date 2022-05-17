@@ -8,8 +8,8 @@ namespace EmployeeWages
 {
     internal class Employee
     {
-        int FullTime = 1, PartTime = 2, WagesPerHour = 20, WorkingDays = 20, empHrs, empSalary, totalSalary;
-        
+        int FullTime = 1, PartTime = 2, WagesPerHour = 20, totalWorkingDays = 20, totalWorkingHrs = 100;
+        int empHrs, empSalary, totalSalary;
         public int getAttendance()
         {
             Random random = new Random();
@@ -20,8 +20,10 @@ namespace EmployeeWages
 
         public void calculateWages(int empCheck)
         {
-            for (int i = 0; i < WorkingDays; i++)
+            int workingHrs = 0, workingDays = 0;
+            while (workingHrs <= totalWorkingHrs && workingDays <= totalWorkingDays)
             {
+                workingDays++;
                 switch (empCheck)
                 {
                     case 1:
@@ -33,10 +35,12 @@ namespace EmployeeWages
                     default:
                         empHrs = 0;
                         break;
-                }      
-                empSalary = empHrs * WagesPerHour;
-                totalSalary +=empSalary;
+                }    
+                workingHrs += empHrs;
             }
+            totalSalary = workingHrs * WagesPerHour;
+            Console.WriteLine("Total working hours of employee are: " + workingHrs);
+            Console.WriteLine("Total working days of employee are: "+ workingDays);
             Console.WriteLine("Employee salary for Month is: " + totalSalary);
         }
     }
