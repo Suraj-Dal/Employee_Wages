@@ -1,5 +1,6 @@
 ﻿EmployeeWages.Employee emp = new EmployeeWages.Employee();
-emp.getAttendance();
+int empCheck = emp.getAttendance();
+emp.calculateWages(empCheck);
 
 
 
