@@ -8,40 +8,36 @@ namespace EmployeeWages
 {
     internal class Employee
     {
-        int FullTime = 1, PartTime = 2, WagesPerHour = 20, empHrs, empSalary;
+        int FullTime = 1, PartTime = 2, WagesPerHour = 20, WorkingDays = 20, empHrs, empSalary, totalSalary;
         
         public int getAttendance()
         {
             Random random = new Random();
             int attendance = random.Next(0, 3);
-            if (attendance == FullTime)
-                Console.WriteLine("Employee is present.");
             
-            else if (attendance == PartTime)
-                Console.WriteLine("Employee present for part time.");
-            
-            else
-                Console.WriteLine("Employee is absent.");
             return attendance;
         }
 
         public void calculateWages(int empCheck)
         {
-            switch (empCheck)
+            for (int i = 0; i < WorkingDays; i++)
             {
-                case 1:
-                    empHrs = 8;
-                    break;
-                case 2:
-                    empHrs = 4;
-                    break;
-                default:
-                    empHrs = 0;
-                    break;
+                switch (empCheck)
+                {
+                    case 1:
+                        empHrs = 8;
+                        break;
+                    case 2:
+                        empHrs = 4;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }      
+                empSalary = empHrs * WagesPerHour;
+                totalSalary +=empSalary;
             }
-
-            empSalary = empHrs * WagesPerHour;
-            Console.WriteLine("Employee salary for the day is: " + empSalary);
+            Console.WriteLine("Employee salary for Month is: " + totalSalary);
         }
     }
 }
