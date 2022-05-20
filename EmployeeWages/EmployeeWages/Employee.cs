@@ -8,8 +8,8 @@ namespace EmployeeWages
 {
     internal class Employee
     {
-        int FullTime = 1, PartTime = 2, WagesPerHour = 20, totalWorkingDays = 20, totalWorkingHrs = 100;
-        int empHrs, empSalary, totalSalary;
+        
+        int empHrs, totalSalary;
         public int getAttendance()
         {
             Random random = new Random();
@@ -18,26 +18,26 @@ namespace EmployeeWages
             return attendance;
         }
 
-        public void calculateWages(int empCheck)
+        public void calculateWages(int empCheck, int totalWorkingHrs, int totalWorkingDays, int WagesPerHour)
         {
             int workingHrs = 0, workingDays = 0;
-            while (workingHrs <= totalWorkingHrs && workingDays <= totalWorkingDays)
-            {
-                workingDays++;
-                switch (empCheck)
+                while (workingHrs <= totalWorkingHrs && workingDays <= totalWorkingDays)
                 {
-                    case 1:
-                        empHrs = 8;
-                        break;
-                    case 2:
-                        empHrs = 4;
-                        break;
-                    default:
-                        empHrs = 0;
-                        break;
-                }    
-                workingHrs += empHrs;
-            }
+                    workingDays++;
+                    switch (empCheck)
+                    {
+                        case 1:
+                            empHrs = 8;
+                            break;
+                        case 2:
+                            empHrs = 4;
+                            break;
+                        default:
+                            empHrs = 0;
+                            break;
+                    }
+                    workingHrs += empHrs;
+                }
             totalSalary = workingHrs * WagesPerHour;
             Console.WriteLine("Total working hours of employee are: " + workingHrs);
             Console.WriteLine("Total working days of employee are: "+ workingDays);
