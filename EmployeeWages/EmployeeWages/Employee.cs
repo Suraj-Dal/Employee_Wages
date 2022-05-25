@@ -8,8 +8,8 @@ namespace EmployeeWages
 {
     internal class Employee
     {
-        
-        int empHrs, totalSalary;
+
+        public static int empHrs, totalSalary;
         public int getAttendance()
         {
             Random random = new Random();
@@ -21,7 +21,8 @@ namespace EmployeeWages
         public void calculateWages(int empCheck, int totalWorkingHrs, int totalWorkingDays, int WagesPerHour)
         {
             int workingHrs = 0, workingDays = 0;
-                while (workingHrs <= totalWorkingHrs && workingDays <= totalWorkingDays)
+           
+            while (workingHrs <= totalWorkingHrs && workingDays <= totalWorkingDays)
                 {
                     workingDays++;
                     switch (empCheck)
@@ -40,8 +41,10 @@ namespace EmployeeWages
                 }
             totalSalary = workingHrs * WagesPerHour;
             Console.WriteLine("Total working hours of employee are: " + workingHrs);
-            Console.WriteLine("Total working days of employee are: "+ workingDays);
+            Console.WriteLine("Total working days of employee are: " + workingDays);
             Console.WriteLine("Employee salary for Month is: " + totalSalary);
+            
         }
+        
     }
 }
