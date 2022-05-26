@@ -10,7 +10,6 @@ namespace EmployeeWages
             Console.WriteLine("How many Companies you want to add:");
             int noOfCompany = Convert.ToInt32(Console.ReadLine());
             empWageBuilder build = new empWageBuilder();
-
             while (noOfCompany > 0)
             {
                 Console.WriteLine("Enter Name pf Company:");
@@ -24,6 +23,7 @@ namespace EmployeeWages
                 build.addCompany(company, totalWorkingHrs, totalWorkingDays, wagesPerHrs);
                 noOfCompany--;
             }
+            log.Info("Getting Details from company.");
             build.getWages();
         }
 

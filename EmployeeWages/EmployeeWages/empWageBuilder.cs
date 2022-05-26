@@ -9,7 +9,7 @@ namespace EmployeeWages
     internal class empWageBuilder
     {
        int noOfCompany = 0;
-       Employee[] emp = new Employee[5];
+       Employee[] emp = new Employee[4];
        
         public void addCompany(string company, int totalWorkingHrs, int totalWorkingDays, int wagesPerHour)
         {
