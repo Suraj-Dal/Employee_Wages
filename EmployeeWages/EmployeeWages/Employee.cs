@@ -8,43 +8,96 @@ namespace EmployeeWages
 {
     internal class Employee
     {
-
-        public static int empHrs, totalSalary;
-        public int getAttendance()
+        public string company;
+        public int totalSalary, totalWorkingHrs, totalWorkingDays, wagesPerHour;
+        public Employee(string company, int totalWorkingHrs, int totalWorkingDays, int wagesPerHour)
         {
-            Random random = new Random();
-            int attendance = random.Next(0, 3);
-            
-            return attendance;
+            this.company = company;
+            this.totalWorkingDays = totalWorkingDays;
+            this.totalWorkingHrs = totalWorkingHrs;
+            this.wagesPerHour = wagesPerHour; 
         }
 
-        public void calculateWages(int empCheck, int totalWorkingHrs, int totalWorkingDays, int WagesPerHour)
+        public void getDetails(int totalSalary)
         {
-            int workingHrs = 0, workingDays = 0;
-           
-            while (workingHrs <= totalWorkingHrs && workingDays <= totalWorkingDays)
-                {
-                    workingDays++;
-                    switch (empCheck)
-                    {
-                        case 1:
-                            empHrs = 8;
-                            break;
-                        case 2:
-                            empHrs = 4;
-                            break;
-                        default:
-                            empHrs = 0;
-                            break;
-                    }
-                    workingHrs += empHrs;
-                }
-            totalSalary = workingHrs * WagesPerHour;
-            Console.WriteLine("Total working hours of employee are: " + workingHrs);
-            Console.WriteLine("Total working days of employee are: " + workingDays);
-            Console.WriteLine("Employee salary for Month is: " + totalSalary);
-            
+            this.totalSalary = totalSalary;
+        }
+        public String showDetails()
+        {
+            return "Total Monthly Wages for "+ company + " is "+ totalSalary;
         }
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/--------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Employee
+{
+    public class CompanyEmpWage
+    {
+        public string company;
+        public int empWagePerHour, empWorkDaysPerMonth, maxWorkingHours, totalSalary;
+
+        public CompanyEmpWage(string company, int empWagePerHour, int empWorkDaysPerMonth, int maxWorkingHours)
+        {
+            this.company = company;
+            this.empWagePerHour = empWagePerHour;
+            this.empWorkDaysPerMonth = empWorkDaysPerMonth;
+            this.maxWorkingHours = maxWorkingHours;
+        }
+        public void setTotalEmpWage(int totalSalary)
+        {
+            this.totalSalary = totalSalary;
+        }
+        public string toString()
+        {
+            return "Monthly salary of an Employee in " + this.company + " is " + this.totalSalary;
+        }
+    }
+}*/
